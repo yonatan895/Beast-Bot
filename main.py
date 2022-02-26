@@ -81,7 +81,7 @@ async def on_guild_remove(guild):  #When the bot leaves delete prefixes
 
 @client.event
 async def on_message(message):
-    if message.author.bot == False:
+    if message.author.bot is False:
         with open('users.json', 'r') as f:
             users = json.load(f)
 
@@ -206,7 +206,7 @@ async def setprefix(ctx, prefixset=None):
         await ctx.send('This command requires administrative role')
         return
 
-    if (prefixset == None):
+    if (prefixset is None):
         prefixset = '$'
 
     with open('prefixes.json', 'r') as f:
@@ -234,7 +234,7 @@ async def help(ctx):
 
 @client.command()  #See the profile picture
 async def avatar(ctx, member: discord.Member = None):
-    if member == None:
+    if member is None:
         member = ctx.author
     memberAvatar = member.avatar_url
 
@@ -368,7 +368,7 @@ async def serverinfo(ctx):  #Server Info
 
 @client.command()  #Load the wanted template with the profilepic
 async def wanted(ctx, member: discord.Member = None):
-    if member == None:
+    if member is None:
         member = ctx.author
     wanted = Image.open("wanted.jpg")
 
@@ -389,7 +389,7 @@ async def wanted(ctx, member: discord.Member = None):
 
 @client.command()  #Make the bot say something
 async def say(ctx, saymsg=None):
-    if saymsg == None:
+    if saymsg is None:
         return await ctx.send('You must tell me the message to say!')
     await ctx.send(saymsg)
     sayEmbed = discord.Embed(title=f"{ctx.author} Says",
