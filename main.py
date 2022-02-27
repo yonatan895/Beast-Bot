@@ -202,11 +202,11 @@ async def level(ctx, member: discord.Member = None):
 
 @client.command(aliases=['prefix'])  #Set prefix command
 async def setprefix(ctx, prefixset=None):
-    if (not ctx.author.guild_permissions.administrator):
+    if not ctx.author.guild_permissions.administrator:
         await ctx.send('This command requires administrative role')
         return
 
-    if (prefixset == None):
+    if prefixset == None:
         prefixset = '$'
 
     with open('prefixes.json', 'r') as f:
@@ -246,7 +246,7 @@ async def avatar(ctx, member: discord.Member = None):
 
 @client.command(aliases=['boot'])  # Request Kick
 async def kick(ctx, member: discord.Member, *, reason=None):
-    if (not ctx.author.guild_permissions.kick_members):
+    if not ctx.author.guild_permissions.kick_members:
         await ctx.send('This command requires ' 'כריש' '')
         return
     await member.kick(reason=reason)
@@ -255,7 +255,7 @@ async def kick(ctx, member: discord.Member, *, reason=None):
 
 @client.command(aliases=['hammer'])  # Request Ban
 async def ban(ctx, member: discord.Member, *, reason=None):
-    if (not ctx.author.guild_permissions.ban_members):
+    if not ctx.author.guild_permissions.ban_members:
         await ctx.send('This command requires ' 'כריש' '')
         return
     await member.ban(reason=reason)
@@ -264,7 +264,7 @@ async def ban(ctx, member: discord.Member, *, reason=None):
 
 @client.command(aliases=['forgive'])  # Request ban cancelation
 async def unban(ctx, *, member):
-    if (not ctx.author.guild_permissions.ban_members):
+    if not ctx.author.guild_permissions.ban_members:
         await ctx.send('This command requires ' 'כריש' '')
         return
     banned_users = await ctx.guild.bans()
@@ -282,7 +282,7 @@ async def unban(ctx, *, member):
 
 @client.command(aliases=['purge'])  #Delete an amount of messages <100
 async def clear(ctx, amount=11):
-    if (not ctx.author.guild_permissions.manage_messages):
+    if not ctx.author.guild_permissions.manage_messages:
         await ctx.send('This command requires ' 'כריש' '')
         return
     if amount > 101:
@@ -294,7 +294,7 @@ async def clear(ctx, amount=11):
 
 @client.command()
 async def mute(ctx, member: discord.Member, *, reason=None):  #Mute a member
-    if (not ctx.author.guild_permissions.administrator):
+    if not ctx.author.guild_permissions.administrator:
         await ctx.send('This command requires an administrative role')
         return
     guild = ctx.guild
@@ -320,7 +320,7 @@ async def mute(ctx, member: discord.Member, *, reason=None):  #Mute a member
 
 @client.command()  #Slowmode enable and disable
 async def slowmode(ctx, time: int):
-    if (not ctx.author.guild_permissions.manage_messages):
+    if not ctx.author.guild_permissions.manage_messages:
         await ctx.send('This command requires ' 'כריש' '')
         return
     try:
@@ -402,7 +402,7 @@ async def unmute(ctx,
                  member: discord.Member,
                  *,
                  reason=None):  #Unmute a member
-    if (not ctx.author.guild_permissions.administrator):
+    if not ctx.author.guild_permissions.administrator:
         await ctx.send('This command requires an administrative role')
         return
     guild = ctx.guild
