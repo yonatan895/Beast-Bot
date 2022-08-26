@@ -485,4 +485,3 @@ async def setprefix_error(ctx, error):
 keep_alive.keep_alive()
 client.run(os.environ['TOKEN'])
 
-#I like your skechers, you like me too, bring yourself all of us in the pool, bad lil bitch all my drip make you drool, I just want to make you mine, hope inside the ride, I promise you it will be Fine. shawty bad with the sketchers on, wann'na hold your hand, make you my girl, light up light up skechers, light up light up my world
